@@ -228,83 +228,30 @@ body {
     height: 100%;
     object-fit: contain;
 }
-/* ==========================================================================
-   تنسيق قسم المساهمة في شركات التسويق الجديد
-   ========================================================================== */
-.contribution {
-    padding: 40px 0;
-}
 
-.contrib-intro-box {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto 40px;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 25px;
-    border-radius: 15px;
-}
-
-.contrib-intro-box p {
-    font-size: 1.1rem;
-    color: #ccc;
-    margin-bottom: 10px;
-}
-
-.contrib-intro-box p:last-child {
-    margin-bottom: 0;
-    color: #a29bfe;
-    font-weight: 500;
-}
-
-.contrib-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-.contrib-card {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 15px;
-    padding: 30px 20px;
-    text-align: center;
-    transition: 0.4s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.contrib-card:hover {
-    transform: translateY(-8px);
-    border-color: #a29bfe;
-    background: rgba(162, 155, 254, 0.08);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-}
-
-.contrib-card i {
-    font-size: 2.2rem;
-    color: #a29bfe;
-    margin-bottom: 15px;
-}
-
-.contrib-card h3 {
-    font-size: 1rem;
-    color: #fff;
-    font-weight: 600;
-    line-height: 1.4;
-}
-
-/* لتعديل توافق الاتجاهات عند تحويل الموقع للغة الإنجليزية */
-[dir="ltr"] .contrib-intro-box {
-    text-align: left;
-}
 /* ==========================================================================
    تنسيقات التجاوب مع الجوال والشاشات الصغيرة (Media Queries)
    ========================================================================== */
+
+.skills-container {
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 12px;
+    padding: 10px 0;
+}
+
+.skill-card {
+    padding: 20px 10px;
+}
+
+.skill-card i {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.skill-card p {
+    font-size: 0.8rem;
+}
+
 
 @media (max-width: 768px) {
     /* 1. القائمة العلوية وأزرار الجوال */
@@ -345,34 +292,7 @@ body {
         text-align: justify; /* تحسين مظهر النص المكتوب */
     }
 
-    /* 5. شبكة المهارات وقسم المساهمة لشركات التسويق */
-    .skills-container, .contrib-grid {
-        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); /* جعل الكروت تصطف بذكاء كرتين بجانب بعضهما */
-        gap: 12px;
-        padding: 10px 0;
-    }
 
-    .skill-card, .contrib-card {
-        padding: 20px 10px;
-    }
-
-    .skill-card i, .contrib-card i {
-        font-size: 1.8rem;
-        margin-bottom: 10px;
-    }
-
-    .skill-card p, .contrib-card h3 {
-        font-size: 0.8rem;
-    }
-
-    .contrib-intro-box {
-        padding: 15px;
-        margin-bottom: 25px;
-    }
-    
-    .contrib-intro-box p {
-        font-size: 0.95rem;
-    }
 
     /* 6. المشاريع الأكاديمية ومشاريع التدريب */
     .projects-grid, .intern-projects-grid {
@@ -410,7 +330,7 @@ body {
         font-size: 1.7rem;
     }
     
-    .skills-container, .contrib-grid {
-        grid-template-columns: repeat(2, 1fr); /* ضمان ظهور كرتين متناسقين دائماً على أصغر الشاشات */
-    }
+   .skills-container {
+    grid-template-columns: repeat(2, 1fr);
+}
 }
