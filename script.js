@@ -55,19 +55,6 @@ const translations = {
         skill_uiux: "UI/UX Design",
         skill_responsive: "Responsive Design",
         skill_office: "Microsoft Office",
-
-        // تراجم القسم الجديد بالإنجليزي
-        contrib_main_title: "How I Can Contribute to Marketing Companies",
-        contrib_p1: "As a Computer Science graduate, I can help marketing companies build digital solutions that improve user experience and strengthen their online presence.",
-        contrib_p2: "I enjoy combining technology and creativity to create modern and professional experiences.",
-        contrib_item1: "Website & marketing page development",
-        contrib_item2: "UI/UX improvement",
-        contrib_item3: "Data dashboards & analytics",
-        contrib_item4: "Digital solutions",
-        contrib_item5: "AI-powered solutions",
-
-        proj_title: "Projects",
-        acad_title: "Academic Projects",
         
         // تفاصيل المشاريع الأكاديمية بالإنجليزي
         proj1_title: "Cherry Blossom Webpage",
