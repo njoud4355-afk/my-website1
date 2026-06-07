@@ -4,9 +4,9 @@ AOS.init();
 // قاموس الترجمة الكامل والشامل (عربي - إنجليزي)
 const translations = {
     ar: {
-        cv: "السيرة الذاتيه",
+        cv: "السيرة الذاتية",
         lang: "English",
-        welcome: "Welcome To My Portfolio Website",
+        welcome: "أهلاً بكم في موقعي الشخصي",
         about_title: "نبذة عني",
         about_text: "أنا نجود العلي، خريجة علوم الحاسب من الجامعة السعودية الإلكترونية، مهتمة بتطوير الويب وتصميم واجهات المستخدم. أحرص على بناء مواقع وتطبيقات رقمية تجمع بين التصميم العصري وسهولة الاستخدام. <br><br> خلال دراستي الجامعية، عملت على عدة مشاريع في تطوير مواقع ويب تفاعلية، وتصميم واجهات مستخدم حديثة، بالإضافة إلى مشاريع تعتمد على قواعد البيانات وتحليل البيانات، مما ساهم في تطوير مهاراتي التقنية والعملية. <br><br> كما تدربت في شركة Know How ضمن قسم إدارة المشاريع في مجال التسويق والإعلام الرقمي، حيث شاركت في تطوير لوحة بيانات لعرض وتحليل بيانات الحملات التسويقية، وبناء نظام لإدارة الفرص وتنظيم البيانات بشكل تفاعلي وسهل الاستخدام، وقد أكسبتني هذه التجربة خبرة عملية في تطوير الأنظمة الرقمية وتحليل البيانات وتطبيق الحلول التقنية بشكل عملي داخل بيئة عمل احترافية.",
         skills_title: "المهارات",
@@ -14,16 +14,6 @@ const translations = {
         skill_responsive: "التصميم المتجاوب",
         skill_office: "مايكروسوفت أوفيس",
         
-        // تراجم القسم الجديد
-        contrib_main_title: "كيف أستطيع المساهمة في شركات التسويق",
-        contrib_p1: "بصفتي خريجة Computer Science، أستطيع المساهمة في تطوير مواقع وحلول رقمية تساعد شركات التسويق على تحسين تجربة المستخدم وتعزيز حضورها الرقمي.",
-        contrib_p2: "أهتم بدمج التقنية مع التصميم لتقديم تجربة حديثة واحترافية.",
-        contrib_item1: "تطوير المواقع والصفحات التسويقية",
-        contrib_item2: "تحسين تجربة المستخدم UI/UX",
-        contrib_item3: "تحليل البيانات والداشبوردات",
-        contrib_item4: "الحلول الرقمية",
-        contrib_item5: "حلول تعتمد على الذكاء الاصطناعي",
-
         proj_title: "المشاريع",
         acad_title: "المشاريع الأكاديمية",
         
@@ -43,7 +33,10 @@ const translations = {
         intern2_title: "Opportunity Management Dashboard",
         intern2_desc: "نظام لإدارة وتحليل الفرص والمنافسات، يحتوي على لوحة إحصائيات رئيسية وصفحة تقارير بجداول قابلة للبحث والتصفية.",
         
-        contact_title: "تواصل معي"
+        contact_title: "تواصل معي",
+        
+        // [الجديد]: نص الزر باللغة العربية
+        view_project: "عرض المشروع"
     },
     en: {
         cv: "Resume",
@@ -55,6 +48,9 @@ const translations = {
         skill_uiux: "UI/UX Design",
         skill_responsive: "Responsive Design",
         skill_office: "Microsoft Office",
+        
+        proj_title: "Projects",
+        acad_title: "Academic Projects",
         
         // تفاصيل المشاريع الأكاديمية بالإنجليزي
         proj1_title: "Cherry Blossom Webpage",
@@ -72,11 +68,15 @@ const translations = {
         intern2_title: "Opportunity Management Dashboard",
         intern2_desc: "A system for managing and analyzing opportunities and competitions, featuring a main statistics dashboard and a reports page with searchable and filterable tables.",
         
-        contact_title: "Contact Me"
+        contact_title: "Contact Me",
+        
+        // [الجديد]: نص الزر باللغة الإنجليزية
+        view_project: "View Project"
     }
 };
 
 let currentLang = 'ar';
+let typewriterTimeout; // لتخزين توقيت الكتابة وإعادة تشغيله بسلاسة عند تحويل اللغة
 
 // وظيفة تبديل اللغة الكاملة
 function toggleLanguage() {
@@ -94,20 +94,10 @@ function toggleLanguage() {
     document.getElementById('about-text').innerHTML = data.about_text;
     document.getElementById('skills-main-title').innerText = data.skills_title;
     
-    // تحديث مهارات معينة تحتاج ترجمة
+    // تحديث المهارات المعينة
     document.getElementById('skill-uiux').innerText = data.skill_uiux;
     document.getElementById('skill-responsive').innerText = data.skill_responsive;
     document.getElementById('skill-office').innerText = data.skill_office;
-
-    // تحديث نصوص القسم الجديد (المساهمة في شركات التسويق)
-    document.getElementById('contrib-main-title').innerText = data.contrib_main_title;
-    document.getElementById('contrib-p1').innerText = data.contrib_p1;
-    document.getElementById('contrib-p2').innerText = data.contrib_p2;
-    document.getElementById('contrib-item1').innerText = data.contrib_item1;
-    document.getElementById('contrib-item2').innerText = data.contrib_item2;
-    document.getElementById('contrib-item3').innerText = data.contrib_item3;
-    document.getElementById('contrib-item4').innerText = data.contrib_item4;
-    document.getElementById('contrib-item5').innerText = data.contrib_item5;
 
     // تحديث عناوين وتفاصيل المشاريع
     document.getElementById('proj-title').innerText = data.proj_title;
@@ -125,29 +115,45 @@ function toggleLanguage() {
     document.getElementById('intern2-title').innerText = data.intern2_title;
     document.getElementById('intern2-desc').innerText = data.intern2_desc;
     
+    // [الجديد]: أسطر ترجمة أزرار الروابط المضافة هنا
+    document.getElementById('intern1-link').innerHTML = `${data.view_project} <i class="fas fa-external-link-alt"></i>`;
+    document.getElementById('intern2-link').innerHTML = `${data.view_project} <i class="fas fa-external-link-alt"></i>`;
+
     document.getElementById('contact-title').innerText = data.contact_title;
+
+    // إعادة تشغيل تأثير الكتابة باللغة الجديدة
+    clearTimeout(typewriterTimeout);
+    startTypewriter();
 }
 
-// تأثير الكتابة التلقائية في واجهة الموقع
-const heroText = "Welcome To My Portfolio Website";
-let i = 0;
-function typeWriter() {
-    if (i < heroText.length) {
-        document.getElementById("hero-typewriter").innerHTML += heroText.charAt(i);
-        i++;
-        setTimeout(typeWriter, 100);
+// دالة بدء وإعادة بناء تأثير الكتابة التلقائية
+function startTypewriter() {
+    const txt = translations[currentLang].welcome;
+    document.getElementById("hero-typewriter").innerHTML = "";
+    let i = 0;
+    
+    function type() {
+        if (i < txt.length) {
+            document.getElementById("hero-typewriter").innerHTML += txt.charAt(i);
+            i++;
+            typewriterTimeout = setTimeout(type, 800 / txt.length); // سرعة متناسبة مع طول النص
+        }
     }
+    type();
 }
 
 // التحكم في شاشة التحميل (Loader) وبدء الكتابة
 window.onload = () => {
+    // تشغيل النص الافتراضي لأول مرة باللغة العربية
+    document.getElementById("hero-typewriter").innerHTML = "";
+    
     setTimeout(() => {
         const loader = document.getElementById('loader');
         if(loader) {
             loader.style.opacity = '0';
             setTimeout(() => {
                 loader.style.display = 'none';
-                typeWriter();
+                startTypewriter();
             }, 800);
         }
     }, 1500);
