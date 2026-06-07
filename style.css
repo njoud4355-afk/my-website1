@@ -14,11 +14,11 @@ body {
     line-height: 1.6; 
 }
 
-/* 2. حاوية المسافات الجانبية (الجديد) */
+/* 2. حاوية المسافات الجانبية */
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 5%; /* هذه هي المسافة التي طلبتِها عن جوانب الشاشة */
+    padding: 0 5%;
 }
 
 /* 3. شاشة الدخول */
@@ -34,14 +34,14 @@ body {
 
 /* 4. الواجهة الرئيسية (Hero) */
 .hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; background: radial-gradient(circle at center, #1e1e2f 0%, #0b0b13 100%); }
-.main-welcome-text { font-size: 3.5rem; font-weight: bold; color: white; text-shadow: 0 0 20px rgba(162, 155, 254, 0.6); margin-bottom: 20px; }
+.main-welcome-text { font-size: 3.5rem; font-weight: bold; color: white; text-shadow: 0 0 20px rgba(162, 155, 254, 0.6); margin-bottom: 20px; min-height: 5.5rem; }
 .hero-icons { display: flex; justify-content: center; gap: 20px; font-size: 2rem; color: #a29bfe; }
 
-/* 5. القائمة العلوية والأزرار (تعديل الأزرار الموحدة) */
+/* 5. القائمة العلوية والأزرار */
 .navbar {
     display: flex; justify-content: space-between; align-items: center; padding: 15px 5%;
     background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(15px);
-    position: fixed; width: 100%; z-index: 1000; border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: fixed; width: 100%; top: 0; left: 0; z-index: 1000; border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .nav-controls {
@@ -49,11 +49,10 @@ body {
     gap: 15px;
 }
 
-/* تنسيق زر السي في وزر اللغة الموحد */
 .nav-btn {
     display: inline-block;
     padding: 10px 25px;
-    border-radius: 50px; /* الشكل البيضاوي */
+    border-radius: 50px;
     border: 1.5px solid #a29bfe;
     background: transparent;
     color: white;
@@ -81,13 +80,13 @@ body {
     margin: 0 auto;
     padding: 20px;
 }
-/* تنسيق بطاقات المشاريع الأكاديمية */
+
 #acad-projects .project-card {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 15px;
     padding: 25px;
-    height: 100%; /* لتوحيد ارتفاع الكروت بجانب بعضها */
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -138,10 +137,9 @@ body {
 .proj-category { margin: 50px 0 20px; color: #a29bfe; font-size: 1.5rem; border-bottom: 2px solid rgba(162, 155, 254, 0.3); padding-bottom: 10px; }
 .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
 .project-card { background: rgba(255, 255, 255, 0.05); padding: 25px; border-radius: 15px; transition: 0.3s; }
-.java-project { border-left: 4px solid #f39c12; }
 .tech { display: inline-block; margin-top: 15px; font-size: 0.8rem; color: #a29bfe; background: rgba(162, 155, 254, 0.1); padding: 2px 10px; border-radius: 10px; }
 
-/* 7. قسم التواصل (الجديد في المنتصف) */
+/* 7. قسم التواصل */
 .contact-info {
     display: flex;
     flex-direction: column;
@@ -152,7 +150,7 @@ body {
 
 .contact-link {
     font-size: 1.2rem;
-    color: #a29bfe; /* لون موحد مع المهارات */
+    color: #a29bfe;
     text-decoration: none;
     transition: 0.3s;
     display: flex;
@@ -164,19 +162,18 @@ body {
     transform: scale(1.05);
     color: white;
 }
-/* تنسيق شبكة المشاريع لظهورها بجانب بعضها (الحفاظ على الترتيب) */
+
 .intern-projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* جعل العرض أكبر قليلاً للوضوح */
-    gap: 40px; /* مسافة كافية بين المشروعين */
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 40px;
     padding: 30px 0;
 }
 
-/* تنسيق كروت مشاريع التدريب */
 .intern-card {
     background: rgba(255, 255, 255, 0.03);
     border-radius: 20px;
-    overflow: hidden; /* لقص الزوايا */
+    overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: 0.4s ease-in-out;
     display: flex;
@@ -189,9 +186,8 @@ body {
     background: rgba(162, 155, 254, 0.08);
 }
 
-/* حاوية الصورة */
 .intern-img {
-    position: relative; /* ضروري لتحديد موقع الأسهم بالنسبة للصورة */
+    position: relative;
     width: 100%;
     height: 300px;
     overflow: hidden;
@@ -216,12 +212,9 @@ body {
 .prev { left: 10px; }
 .next { right: 10px; }
 
-.img-wrapper {
-    display: flex;
-    width: 200%;
-    height: 100%;
-    transition: transform 0.5s ease;
-}
+/* ضبط انسيابية وحركة السلايدر لتتوافق مع الـ RTL و LTR */
+html[dir="rtl"] .img-wrapper { display: flex; width: 200%; height: 100%; transition: transform 0.5s ease; flex-direction: row; }
+html[dir="ltr"] .img-wrapper { display: flex; width: 200%; height: 100%; transition: transform 0.5s ease; flex-direction: row; }
 
 .img-wrapper img {
     width: 50%;
@@ -229,108 +222,62 @@ body {
     object-fit: contain;
 }
 
-/* ==========================================================================
-   تنسيقات التجاوب مع الجوال والشاشات الصغيرة (Media Queries)
-   ========================================================================== */
-
-.skills-container {
-    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-    gap: 12px;
-    padding: 10px 0;
-}
-
-.skill-card {
-    padding: 20px 10px;
-}
-
-.skill-card i {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-}
-
-.skill-card p {
-    font-size: 0.8rem;
-}
-
-
+/* التجاوب مع الجوال */
 @media (max-width: 768px) {
-    /* 1. القائمة العلوية وأزرار الجوال */
-    .navbar {
-        padding: 10px 4%;
-    }
-    
-    .nav-btn {
-        padding: 8px 16px;
-        min-width: 85px;
-        font-size: 0.8rem;
-    }
-
-    /* 2. الواجهة الرئيسية (Hero Section) */
-    .main-welcome-text {
-        font-size: 2rem; /* تصغير الخط ليناسب الشاشة */
-        padding: 0 15px;
-        line-height: 1.4;
-    }
-    
-    .hero-icons {
-        font-size: 1.6rem;
-    }
-
-    /* 3. العناوين والمسافات العامة */
-    .section-title {
-        font-size: 1.8rem;
-        margin: 40px 0 25px;
-    }
-    
-    .container {
-        padding: 0 4%; /* تقليل الحواف الجانبية في الجوال لكسب مساحة */
-    }
-
-    /* 4. نبذة عني */
-    .about p {
-        font-size: 0.95rem;
-        text-align: justify; /* تحسين مظهر النص المكتوب */
-    }
-
-
-
-    /* 6. المشاريع الأكاديمية ومشاريع التدريب */
-    .projects-grid, .intern-projects-grid {
-        grid-template-columns: 1fr; /* جعل المشاريع تظهر فوق بعضها عمودياً */
-        gap: 20px;
-    }
-
-    .intern-card {
-        max-width: 100%;
-    }
-
-    .intern-img {
-        height: 200px; /* تقليل ارتفاع حاوية الصور لتناسب الجوال */
-    }
-
-    .slider-btn {
-        padding: 8px 12px;
-        font-size: 0.8rem;
-    }
-
-    /* 7. قسم التواصل */
-    .contact-info {
-        padding: 20px 0 60px;
-        gap: 15px;
-    }
-
-    .contact-link {
-        font-size: 1rem;
-    }
+    .navbar { padding: 10px 4%; }
+    .nav-btn { padding: 8px 16px; min-width: 85px; font-size: 0.8rem; }
+    .main-welcome-text { font-size: 2rem; padding: 0 15px; line-height: 1.4; min-height: 4rem; }
+    .hero-icons { font-size: 1.6rem; }
+    .section-title { font-size: 1.8rem; margin: 40px 0 25px; }
+    .container { padding: 0 4%; }
+    .about p { font-size: 0.95rem; text-align: justify; }
+    .projects-grid, .intern-projects-grid { grid-template-columns: 1fr; gap: 20px; }
+    .intern-card { max-width: 100%; }
+    .intern-img { height: 200px; }
+    .slider-btn { padding: 8px 12px; font-size: 0.8rem; }
+    .contact-info { padding: 20px 0 60px; gap: 15px; }
+    .contact-link { font-size: 1rem; }
 }
 
-/* الشاشات الصغيرة جداً (الهواتف القديمة أو الصغيرة) */
 @media (max-width: 480px) {
-    .main-welcome-text {
-        font-size: 1.7rem;
-    }
-    
-   .skills-container {
-    grid-template-columns: repeat(2, 1fr);
+    .main-welcome-text { font-size: 1.7rem; }
+    .skills-container { grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 10px 0; }
+    .skill-card { padding: 20px 10px; }
+    .skill-card i { font-size: 1.8rem; margin-bottom: 10px; }
+    .skill-card p { font-size: 0.8rem; }
 }
+/* تنسيق أزرار روابط المشاريع داخل الكروت */
+.intern-details {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.project-link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    align-self: flex-start; /* يجعل الزر على اليمين أو اليسار بحسب اتجاه الصفحة بدلاً من أخذ العرض بالكامل */
+    color: #a29bfe;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-bottom: 1.5px dashed transparent;
+    transition: 0.3s ease;
+    margin-top: 5px;
+}
+
+.project-link-btn:hover {
+    color: white;
+    border-color: #a29bfe;
+    transform: translateX(3px); /* حركة بسيطة تعطي شعوراً بالتفاعل */
+}
+
+/* ضبط اتجاه الحركة التفاعلية في النسخة الإنجليزية */
+html[dir="ltr"] .project-link-btn:hover {
+    transform: translateX(3px);
+}
+html[dir="rtl"] .project-link-btn:hover {
+    transform: translateX(-3px);
 }
