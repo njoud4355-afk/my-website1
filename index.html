@@ -21,9 +21,17 @@
     </div>
 
     <nav class="navbar">
-        <div class="logo"></div> 
+        <div class="logo"></div>
         <div class="nav-controls">
-            <a href="CV-Njoud Alali.pdf" class="nav-btn" id="btn-cv-nav" download>السيرة الذاتية</a>
+            <!-- زر السيرة الذاتية مع قائمة الخيارات للتحميل -->
+            <div class="cv-dropdown-container" id="cv-dropdown-container">
+                <button class="nav-btn" id="btn-cv-nav" onclick="toggleCvDropdown(event)">السيرة الذاتية</button>
+                <div class="cv-dropdown-menu" id="cv-dropdown-menu">
+                    <a href="assets/السيرة الذاتية-نجود العلي.pdf" download="السيرة الذاتية-نجود العلي.pdf" class="cv-option-item" onclick="closeCvDropdown()">العربية</a>
+                    <a href="assets/CV-Njoud Alali.pdf" download="CV-Njoud Alali.pdf" class="cv-option-item" onclick="closeCvDropdown()">English</a>
+                </div>
+            </div>
+            
             <button onclick="toggleLanguage()" class="nav-btn lang-toggle-btn" id="lang-toggle">English</button>
         </div>
     </nav>
@@ -39,7 +47,7 @@
         </div>
     </section>
 
-    <div class="container"> 
+    <div class="container">
         <section class="about" id="about" data-aos="fade-up">
             <h2 id="about-title" class="section-title">نبذة عني</h2>
             <p id="about-text">
@@ -57,15 +65,89 @@
                 <div class="skill-card" data-aos="zoom-in"><i class="fab fa-html5"></i><p>HTML</p></div>
                 <div class="skill-card" data-aos="zoom-in"><i class="fab fa-css3-alt"></i><p>CSS</p></div>
                 <div class="skill-card" data-aos="zoom-in"><i class="fab fa-js"></i><p>JavaScript</p></div>
-                <div class="skill-card" data-aos="zoom-in"><i class="fas fa-palette"></i><p id="skill-uiux">تصميم واجهات المستخدم UI/UX</p></div>
-                <div class="skill-card" data-aos="zoom-in"><i class="fas fa-mobile-alt"></i><p id="skill-responsive">التصميم المتجاوب</p></div>
+                <div class="skill-card" data-aos="zoom-in"><i class="fas fa-palette"></i><p>UI/UX Design</p></div>
+                <div class="skill-card" data-aos="zoom-in"><i class="fab fa-figma"></i><p>Figma</p></div>
                 <div class="skill-card" data-aos="zoom-in"><i class="fas fa-chart-bar"></i><p>Chart.js</p></div>
                 <div class="skill-card" data-aos="zoom-in"><i class="fas fa-file-invoice"></i><p>Google Sheets API</p></div>
                 <div class="skill-card" data-aos="zoom-in"><i class="fas fa-terminal"></i><p>Apps Script</p></div>
                 <div class="skill-card" data-aos="zoom-in"><i class="fab fa-android"></i><p>Android Studio</p></div>
                 <div class="skill-card" data-aos="zoom-in"><i class="fab fa-java"></i><p>Java</p></div>
-                <div class="skill-card" data-aos="zoom-in"><i class="fas fa-file-word"></i><p id="skill-office">مايكروسوفت أوفيس</p></div>
+                <div class="skill-card" data-aos="zoom-in"><i class="fas fa-file-word"></i><p>Microsoft Office</p></div>
                 <div class="skill-card" data-aos="zoom-in"><i class="fab fa-github"></i><p>GitHub</p></div>
+            </div>
+        </section>
+
+        <!-- قسم الأعمال المختارة -->
+        <section class="selected-work-section" id="selected-work">
+            <h2 data-aos="fade-up" id="selected-work-title" class="section-title">أعمال مختارة</h2>
+            
+            <div class="work-tabs" data-aos="fade-up">
+                <button class="work-tab-btn active" onclick="switchWorkTab('websites')" id="tab-websites-btn">المواقع</button>
+                <button class="work-tab-btn" onclick="switchWorkTab('uiux')" id="tab-uiux-btn">تصاميم</button>
+            </div>
+
+            <!-- فئة 01: المواقع الإلكترونية -->
+            <div class="work-category-content active" id="category-websites">
+                <div class="projects-grid" id="websites-grid">
+                    <div class="project-card work-web-card" data-aos="zoom-in">
+                        <div class="web-preview-placeholder"><i class="fas fa-laptop-code"></i></div>
+                        <h4 id="web1-title">Technostream</h4>
+                        <p id="web1-desc">منصة رقمية متقدمة لحلول تقنية وتدفق البيانات مع واجهة تفاعلية.</p>
+                        <a href="https://darling-pony-2ef6a5.netlify.app/#contact" target="_blank" class="project-link-btn" id="web1-link">عرض الموقع <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+
+                    <div class="project-card work-web-card" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="web-preview-placeholder"><i class="fas fa-robot"></i></div>
+                        <h4 id="web2-title">AETHER ROBOTICS</h4>
+                        <p id="web2-desc">واجهة ويب حديثة متخصصة في قطاع الروبوتات والذكاء الاصطناعي.</p>
+                        <a href="https://thriving-creponne-111432.netlify.app" target="_blank" class="project-link-btn" id="web2-link">عرض الموقع <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+
+                    <div class="project-card work-web-card" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="web-preview-placeholder"><i class="fas fa-mountain"></i></div>
+                        <h4 id="web3-title">AlUla</h4>
+                        <p id="web3-desc">موقع سياحي تعريفي يبرز جمال التراث والطبيعة في محافظة العلا.</p>
+                        <a href="https://cozy-lebkuchen-91bac2.netlify.app" target="_blank" class="project-link-btn" id="web3-link">عرض الموقع <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+
+                    <div class="project-card work-web-card" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="web-preview-placeholder"><i class="fas fa-vr-cardboard"></i></div>
+                        <h4 id="web4-title">VR</h4>
+                        <p id="web4-desc">تجربة ويب تفاعلية تستعرض تقنيات الواقع الافتراضي الحديثة.</p>
+                        <a href="https://deft-rugelach-6af99e.netlify.app" target="_blank" class="project-link-btn" id="web4-link">عرض الموقع <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- فئة 02: التصاميم البصرية -->
+            <div class="work-category-content" id="category-uiux">
+                <div class="uiux-grid">
+                    <div class="uiux-card" onclick="openLightbox('design/fresh.png', 'Fresh')">
+                        <div class="uiux-img-container">
+                            <img src="design/fresh.png" alt="Fresh" loading="lazy" decoding="async">
+                        </div>
+                    </div>
+                    <div class="uiux-card" onclick="openLightbox('design/money-junkie.png', 'Money Junkie')">
+                        <div class="uiux-img-container">
+                            <img src="design/money-junkie.png" alt="Money Junkie" loading="lazy" decoding="async">
+                        </div>
+                    </div>
+                    <div class="uiux-card" onclick="openLightbox('design/radio-12.png', 'Radio 12')">
+                        <div class="uiux-img-container">
+                            <img src="design/radio-12.png" alt="Radio 12" loading="lazy" decoding="async">
+                        </div>
+                    </div>
+                    <div class="uiux-card" onclick="openLightbox('design/distorted-flow.png', 'Distorted Flow')">
+                        <div class="uiux-img-container">
+                            <img src="design/distorted-flow.png" alt="Distorted Flow" loading="lazy" decoding="async">
+                        </div>
+                    </div>
+                    <div class="uiux-card" onclick="openLightbox('design/keep-it-up.png', 'Keep It Up')">
+                        <div class="uiux-img-container">
+                            <img src="design/keep-it-up.png" alt="Keep It Up" loading="lazy" decoding="async">
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -104,7 +186,7 @@
                 </div>
             </div>
 
-           <h3 class="proj-category" id="intern-title">مشاريع التدريب (Know How Company)</h3>
+            <h3 class="proj-category" id="intern-title">مشاريع التدريب (Know How Company)</h3>
             <div class="intern-projects-grid">
                 <div class="intern-card" data-aos="zoom-in">
                     <div class="intern-img">
@@ -143,7 +225,7 @@
         <section class="contact" id="contact">
             <h2 id="contact-title" class="section-title">تواصل معي</h2>
             <div class="contact-info">
-                <a href="https://wa.me/966504550658" class="contact-link"><i class="fab fa-whatsapp"></i> 0504550658</a>
+                <a href="https://wa.me/966504550658" class="contact-link"><i class="fab fa-whatsapp"></i>0504550658</a>
                 <a href="mailto:njoud.k.alali1@gmail.com" class="contact-link"><i class="far fa-envelope"></i> njoud.k.alali1@gmail.com</a>
             </div>
         </section>
@@ -151,5 +233,10 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="">
+        <div id="lightbox-title" class="lightbox-title"></div>
+    </div>
 </body>
 </html>
