@@ -139,6 +139,171 @@ body {
 .project-card { background: rgba(255, 255, 255, 0.05); padding: 25px; border-radius: 15px; transition: 0.3s; }
 .tech { display: inline-block; margin-top: 15px; font-size: 0.8rem; color: #a29bfe; background: rgba(162, 155, 254, 0.1); padding: 2px 10px; border-radius: 10px; }
 
+/* Styles for Selected Work Tabs & Categories */
+.work-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.work-tab-btn {
+    background: transparent;
+    border: 1.5px solid rgba(162, 155, 254, 0.3);
+    color: #ccc;
+    padding: 10px 25px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: 0.3s;
+}
+
+.work-tab-btn.active, .work-tab-btn:hover {
+    background: #a29bfe;
+    color: #0b0b13;
+    border-color: #a29bfe;
+    font-weight: 600;
+}
+
+.work-category-content {
+    display: none;
+}
+
+.work-category-content.active {
+    display: block;
+}
+
+.work-web-card h4 {
+    color: #a29bfe;
+    margin: 15px 0 10px;
+    font-size: 1.15rem;
+}
+
+.work-web-card p {
+    color: #ccc;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.web-preview-placeholder {
+    height: 140px;
+    background: rgba(162, 155, 254, 0.05);
+    border: 1px dashed rgba(162, 155, 254, 0.3);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: #a29bfe;
+}
+
+.project-link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #a29bfe;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.project-link-btn:hover {
+    color: white;
+}
+
+/* UI/UX Gallery Grid (Images Only) */
+.uiux-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.uiux-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.uiux-card:hover {
+    transform: translateY(-5px);
+    border-color: #a29bfe;
+}
+
+.uiux-img-container {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+}
+
+.uiux-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.uiux-card:hover .uiux-img-container img {
+    transform: scale(1.03);
+}
+
+/* Lightbox Styling */
+.lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(11, 11, 19, 0.9);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.lightbox-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90vh;
+}
+
+.lightbox-content img {
+    max-width: 100%;
+    max-height: 85vh;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    display: block;
+    margin: 0 auto;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: -45px;
+    right: 0;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 2.5rem;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.lightbox-close:hover {
+    color: #a29bfe;
+}
+
 /* 7. قسم التواصل */
 .contact-info {
     display: flex;
@@ -165,119 +330,253 @@ body {
 
 .intern-projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 40px;
-    padding: 30px 0;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
 }
 
 .intern-card {
     background: rgba(255, 255, 255, 0.03);
-    border-radius: 20px;
-    overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: 0.4s ease-in-out;
+    border-radius: 15px;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    transition: 0.3s ease;
 }
 
 .intern-card:hover {
-    transform: translateY(-10px);
     border-color: #a29bfe;
-    background: rgba(162, 155, 254, 0.08);
+    background: rgba(162, 155, 254, 0.05);
+    transform: translateY(-5px);
 }
 
 .intern-img {
     position: relative;
     width: 100%;
-    height: 300px;
+    height: 180px;
     overflow: hidden;
-    background: #0d0d1a;
+    background: #000;
+}
+
+.intern-img .img-wrapper {
+    display: flex;
+    width: 200%;
+    height: 100%;
+    transition: transform 0.4s ease-in-out;
+}
+
+.intern-img .img-wrapper img {
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .slider-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(162, 155, 254, 0.6);
+    background: rgba(0, 0, 0, 0.6);
     color: white;
     border: none;
-    padding: 10px 15px;
+    padding: 8px 12px;
     cursor: pointer;
     z-index: 10;
     border-radius: 50%;
+    font-size: 0.8rem;
     transition: 0.3s;
 }
 
-.slider-btn:hover { background: #a29bfe; }
-.prev { left: 10px; }
-.next { right: 10px; }
-
-/* ضبط انسيابية وحركة السلايدر لتتوافق مع الـ RTL و LTR */
-html[dir="rtl"] .img-wrapper { display: flex; width: 200%; height: 100%; transition: transform 0.5s ease; flex-direction: row; }
-html[dir="ltr"] .img-wrapper { display: flex; width: 200%; height: 100%; transition: transform 0.5s ease; flex-direction: row; }
-
-.img-wrapper img {
-    width: 50%;
-    height: 100%;
-    object-fit: contain;
+.slider-btn:hover {
+    background: #a29bfe;
+    color: #0b0b13;
 }
 
-/* التجاوب مع الجوال */
-@media (max-width: 768px) {
-    .navbar { padding: 10px 4%; }
-    .nav-btn { padding: 8px 16px; min-width: 85px; font-size: 0.8rem; }
-    .main-welcome-text { font-size: 2rem; padding: 0 15px; line-height: 1.4; min-height: 4rem; }
-    .hero-icons { font-size: 1.6rem; }
-    .section-title { font-size: 1.8rem; margin: 40px 0 25px; }
-    .container { padding: 0 4%; }
-    .about p { font-size: 0.95rem; text-align: justify; }
-    .projects-grid, .intern-projects-grid { grid-template-columns: 1fr; gap: 20px; }
-    .intern-card { max-width: 100%; }
-    .intern-img { height: 200px; }
-    .slider-btn { padding: 8px 12px; font-size: 0.8rem; }
-    .contact-info { padding: 20px 0 60px; gap: 15px; }
-    .contact-link { font-size: 1rem; }
-}
+.slider-btn.prev { left: 10px; }
+.slider-btn.next { right: 10px; }
 
-@media (max-width: 480px) {
-    .main-welcome-text { font-size: 1.7rem; }
-    .skills-container { grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 10px 0; }
-    .skill-card { padding: 20px 10px; }
-    .skill-card i { font-size: 1.8rem; margin-bottom: 10px; }
-    .skill-card p { font-size: 0.8rem; }
-}
-/* تنسيق أزرار روابط المشاريع داخل الكروت */
 .intern-details {
     padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    flex-grow: 1;
+    justify-content: space-between;
 }
 
-.project-link-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    align-self: flex-start; /* يجعل الزر على اليمين أو اليسار بحسب اتجاه الصفحة بدلاً من أخذ العرض بالكامل */
+.intern-details h4 {
     color: #a29bfe;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.intern-details p {
+    font-size: 0.85rem;
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.uiux-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transform: translateZ(0); /* تفعيل تسريع الهاردوير GPU Acceleration */
+    will-change: transform;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.uiux-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    content-visibility: auto; /* تحسين أداء العناصر خارج الشاشة */
+    transition: transform 0.4s ease;
+}
+/* مثال لإضافة تأثير ظهور ناعم للـ Lightbox */
+.lightbox-overlay {
+    transition: opacity 0.4s ease-in-out;
+}
+.lightbox-overlay.active {
+    opacity: 1;
+}
+/* UI/UX Design Grid Styles */
+.work-category-content {
+    display: none;
+}
+
+.work-category-content.active {
+    display: block;
+}
+
+.uiux-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.uiux-card {
+    background-color: #1e293b;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.uiux-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(162, 155, 254, 0.2);
+    border-color: #a29bfe;
+}
+
+.uiux-img-container {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    background-color: #0f172a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.uiux-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.uiux-card:hover .uiux-img-container img {
+    transform: scale(1.05);
+}
+
+/* Lightbox Modal Styles */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 80vh;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(162, 155, 254, 0.4);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 25px;
+    right: 35px;
+    font-size: 2.5rem;
+    color: #fff;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.lightbox-close:hover {
+    color: #a29bfe;
+}
+
+.lightbox-title {
+    margin-top: 15px;
+    font-size: 1.2rem;
+    color: #f8fafc;
+    font-weight: 500;
+}
+
+.cv-dropdown-container {
+    position: relative;
+    display: inline-block;
+}
+
+.cv-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(12px);
+    border: 1.5px solid rgba(162, 155, 254, 0.3);
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    min-width: 130px;
+    z-index: 1001;
+    overflow: hidden;
+    text-align: center;
+    padding: 5px 0;
+}
+
+.cv-dropdown-menu.show {
+    display: block;
+}
+
+.cv-option-item {
+    display: block;
+    padding: 10px 15px;
+    color: white;
     text-decoration: none;
     font-size: 0.9rem;
-    font-weight: 600;
-    border-bottom: 1.5px dashed transparent;
-    transition: 0.3s ease;
-    margin-top: 5px;
+    transition: 0.3s;
 }
 
-.project-link-btn:hover {
-    color: white;
-    border-color: #a29bfe;
-    transform: translateX(3px); /* حركة بسيطة تعطي شعوراً بالتفاعل */
-}
-
-/* ضبط اتجاه الحركة التفاعلية في النسخة الإنجليزية */
-html[dir="ltr"] .project-link-btn:hover {
-    transform: translateX(3px);
-}
-html[dir="rtl"] .project-link-btn:hover {
-    transform: translateX(-3px);
+.cv-option-item:hover {
+    background: #a29bfe;
+    color: #0b0b13;
 }
